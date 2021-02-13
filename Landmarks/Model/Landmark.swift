@@ -20,7 +20,7 @@ struct Landmark: Hashable, Codable {
     // MARK: - Computed variables
 
     var image: Image {
-        Image(name)
+        Image(imageName)
     }
 
     var locationCoordinates: CLLocationCoordinate2D {
