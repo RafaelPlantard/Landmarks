@@ -8,7 +8,7 @@
 import CoreLocation
 import SwiftUI
 
-struct Landmark: Hashable, Codable {
+struct Landmark: Hashable, Decodable, Identifiable {
     let id: Int
     let name: String
     let park: String
@@ -32,7 +32,7 @@ struct Landmark: Hashable, Codable {
 
     // MARK: - Inner structures
 
-    struct Coordinates: Hashable, Codable {
+    struct Coordinates: Hashable, Decodable {
         let latitude: Double
         let longitude: Double
     }
