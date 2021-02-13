@@ -16,6 +16,7 @@ struct Landmark: Hashable, Decodable, Identifiable {
     let description: String
     private let imageName: String
     private let coordinates: Coordinates
+    var isFavorite: Bool
 
     // MARK: - Computed variables
 
