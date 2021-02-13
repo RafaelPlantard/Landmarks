@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  LandmarkDetail.swift
 //  Landmarks
 //
 //  Created by Rafael Ferreira on 2/11/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct LandmarkDetail: View {
     let landmark: Landmark
 
     var body: some View {
@@ -51,6 +51,6 @@ struct DetailView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(landmark: landmarks[0])
+        LandmarkDetail(landmark: landmarks[0])
     }
 }
