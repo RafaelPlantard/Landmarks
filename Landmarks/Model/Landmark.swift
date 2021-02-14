@@ -14,14 +14,18 @@ struct Landmark: Hashable, Decodable, Identifiable {
     let park: String
     let state: String
     let description: String
-    private let imageName: String
-    private let coordinates: Coordinates
+
+    var isFavorite: Bool
 
     // MARK: - Computed variables
+
+    private let imageName: String
 
     var image: Image {
         Image(imageName)
     }
+
+    private let coordinates: Coordinates
 
     var locationCoordinates: CLLocationCoordinate2D {
         CLLocationCoordinate2D(

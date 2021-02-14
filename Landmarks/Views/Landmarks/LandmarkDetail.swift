@@ -1,5 +1,5 @@
 //
-//  DetailView.swift
+//  LandmarkDetail.swift
 //  Landmarks
 //
 //  Created by Rafael Ferreira on 2/11/21.
@@ -7,8 +7,14 @@
 
 import SwiftUI
 
-struct DetailView: View {
+struct LandmarkDetail: View {
+    @EnvironmentObject var data: ModelData
+
     let landmark: Landmark
+
+    var landmarkIndex: Int {
+        data.landmarks.firstIndex(where: { element in element.id == landmark.id }) ?? 0
+    }
 
     var body: some View {
         ScrollView {
@@ -21,8 +27,13 @@ struct DetailView: View {
                 .padding(.bottom, -130)
 
             VStack(alignment: .leading) {
-                Text(landmark.name)
-                    .font(.title)
+                HStack {
+                    Text(landmark.name)
+                        .font(.title)
+                        .foregroundColor(.primary)
+
+                    FavoriteButton(isSet: $data.landmarks[landmarkIndex].isFavorite)
+                }
 
                 HStack {
                     Text(landmark.park)
@@ -49,8 +60,11 @@ struct DetailView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LandmarkDetail_Previews: PreviewProvider {
+    static let data = ModelData()
+
     static var previews: some View {
-        DetailView(landmark: landmarks[0])
+        LandmarkDetail(landmark: data.landmarks[0])
+            .environmentObject(data)
     }
 }
