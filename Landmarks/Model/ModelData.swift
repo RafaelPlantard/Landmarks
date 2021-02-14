@@ -5,9 +5,12 @@
 //  Created by Rafael Ferreira on 2/12/21.
 //
 
+import Combine
 import Foundation
 
-var landmarks: [Landmark] = load("LandmarkData.json")
+final class ModelData: ObservableObject {
+    @Published var landmarks: [Landmark] = load("LandmarkData.json")
+}
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
