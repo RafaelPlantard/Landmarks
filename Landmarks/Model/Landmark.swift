@@ -14,6 +14,8 @@ struct Landmark: Hashable, Decodable, Identifiable {
     let park: String
     let state: String
     let description: String
+    let category: Category
+    let isFeatured: Bool
 
     var isFavorite: Bool
 
@@ -39,5 +41,13 @@ struct Landmark: Hashable, Decodable, Identifiable {
     struct Coordinates: Hashable, Decodable {
         let latitude: Double
         let longitude: Double
+    }
+
+    // MARK: - Inner enums
+
+    enum Category: String, CaseIterable, Decodable {
+        case lakes = "Lakes"
+        case rivers = "Rivers"
+        case mountains = "Mountains"
     }
 }
